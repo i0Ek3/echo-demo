@@ -21,13 +21,17 @@ int main()
     // recive requests from client
     SOCKADDR cliAddr;
     int size = sizeof(SOCKADDR);
-    SOCKET clifd = accept(sockfd, (SOCKADDR*)&cliAddr, &size);
-    char buf[BUFSIZE];
-    int len = recv(clifd, buf, BUFSIZE, 0);
-    send(clifd, buf, len, 0);
+    char buf[BUFSIZE] = {0};
 
-    // close fd
-    closesocket(clifd);
+    while (1) {
+        SOCKET clifd = accept(sockfd, (SOCKADDR*)&cliAddr, &size);
+        int len = recv(clifd, buf, BUFSIZE, 0);
+        send(clifd, buf, len, 0);
+
+        // close fd
+        closesocket(clifd);
+        memset(buf, 0, BUFSIZE);
+    }
     closesocket(sockfd);
     WSACleanup();
     return 0;
