@@ -8,14 +8,11 @@ Purpose of this repo just to inside the Windows socket network programming, and 
 
 In fact, there are just some functions is not totally same as Linux, but the mind is same.
 
-Let's go!
+Oh, this repo implement TCP echo server and UDP echo server, have fun.
 
+In TCP echo server, we need socket()/bind()/listen()/connect()/recv()/send() and etc., but in UDP, we just need bind()/recvfrom()/sendto().
 
-## Blocking Model
+More about socket networking programming please visit this site: [http://c.biancheng.net/view/2349.html](http://c.biancheng.net/view/2349.html).
 
-That means next action execute while last one finished, otherwise next action will be paused until last one finished, in order to keep sync.
-
-## Reference
-
-- [http://c.biancheng.net/view/2349.html](http://c.biancheng.net/view/2349.html)
+Let we just do it!
 
